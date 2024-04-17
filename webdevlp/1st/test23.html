@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinetic Typography</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+    position: relative;
+  }
+  h1 {
+    font-size: 48px;
+    color: #333;
+    text-align: center;
+    white-space: break-spaces; /* Allow text wrapping */
+  }
+</style>
+</head>
+<body>
+
+<h1 id="text">Welcome to Our Website!</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+  const text = document.getElementById('text');
+
+  // Split text into words
+  const words = text.textContent.split(' ');
+
+  // Empty the text content of the heading element
+  text.textContent = '';
+
+  // Reconstruct the heading element with spans for each character and space
+  words.forEach((word, wordIndex) => {
+    const wordContainer = document.createElement('span');
+    text.appendChild(wordContainer);
+    
+    // Split the word into characters
+    const characters = word.split('');
+    characters.forEach((char, charIndex) => {
+      const span = document.createElement('span');
+      span.textContent = char;
+      span.style.opacity = 0; // Set initial opacity to 0
+      wordContainer.appendChild(span);
+
+      // Kinetic Typography Animation
+      gsap.fromTo(span, 
+        { opacity: 0, y: '-30' }, // Start state: invisible and slightly above final position
+        { opacity: 1, y: 0, // End state: fully visible and centered vertically
+          delay: wordIndex * 1.5 + charIndex * 0.2, // Stagger the animation by character index within each word
+          duration: 1, // Animation duration
+          ease: 'power2.out' // Easing function
+        }
+      );
+    });
+
+    // Add a space after each word except the last one
+    if (wordIndex !== words.length - 1) {
+      const space = document.createElement('span');
+      space.textContent = ' ';
+      wordContainer.appendChild(space);
+    }
+  });
+</script>
+
+</body>
+</html>

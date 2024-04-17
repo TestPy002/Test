@@ -1,0 +1,78 @@
+<!--Tyoe html:5 for html base code-->
+<!-- <dog cat is running> = dog tag
+    < > is used to start and end a tag basically a block of code like {}
+    first word in tag is tag name, as above dog is tag name, rest written is its content
+-->
+<!DOCTYPE html> <!--states document is html-->
+<html lang="en"> <!--language is english-->
+<!--head tells base info of ur website-->
+<!--head has-
+    1.meta- adds metadata not important to learn
+    2.title-name that is used to search website in chrome or google like
+    3.<style > - style tag to write css code in html file
+    4.<link rel="file type" href="file name"> - we can connect other things with html using link
+        4.1. file types are-
+            1.stylesheet- connect css file
+            2.icon- connect icon image file
+            3.alternate- to connect same page in diff language
+            4.author- adds author of this file
+            5.bookmark- add book mark on browser tab
+            6.next- adds next webpage to this
+            7.prev- adds previous webpage to this
+    5.<script src=".js file name"></script>- everything wrriten between two script tags is js content or we include js file using src
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lesson.css">
+    <script src="script2.js"></script>
+    <title>Document</title>
+</head>
+<!--body contains data that displays on webpage
+    <div > - tag that is used to group multiple tags and elements and apply same style to all
+    <h1 ></h1> - h1 is heading tag, h1-h6, there 6 heading tags, h1 is most important
+    <p ></p> - paragraph block
+    <a ></a> - use to add link/url using href,eg. href='https://...'
+    <img src="image file name or address of online image" alt="name of image" style="widht: 100px(size in pixels) ; height: 100px;"> - use to add image to webpage
+    <video ></video> - use to add video
+    <audio ></audio> - use to embed audio
+    <style > - adds css code
+    there are some attributes used to make unique tags, to differentiate from other
+        class='...' , title='...', id='...'
+        class name is also used to in css to add style to that specific tag
+-->
+<!--
+    <p ></p> here things written inside <p > are attributes like class,id,title,href
+    and things written between <p>.. </p> are things visibke on webpage
+-->
+<body>
+    <p>
+    <div class="gif"><pi id="fish">I am fish</pi></div>
+    <p>Hello world <br> next line</p> <!--<br> is line break like \n-->
+    <div class="pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWQEcAgV5NN1vaZ251vqsgyf77IK_Yooa5KigUjOfwmw&s" style="width:300px ; height:200px ;">
+    <fi class="fire">I am fire</fi></div>
+    <a href="https://www.google.com"><br>Google</a>
+    <p class="blue">I am red</p>
+    <!--id and class names both should be unique-->
+    <style>
+        p { color:yellow} /*direct tag name to add style to all tags having that name*/
+        .blue { color: red} /*.class name to add style to that tag*/
+        #fish { color: blue} /*#id name to add style to that tag*/
+    </style>
+    <div class="box">
+        <p class="red"></p>
+        <p class="green"></p>
+        <p class="white"></p>
+    </div>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+    </div>
+</body>
+</html>

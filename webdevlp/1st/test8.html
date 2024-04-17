@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll-to-Top Button</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  #scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3498db; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Disable pointer events by default */
+    transition: opacity 0.3s; /* Smooth transition */
+  }
+  #scrollToTopBtn.show {
+    opacity: 1; /* Show button when scrolled down */
+    pointer-events: auto; /* Enable pointer events when visible */
+  }
+</style>
+</head>
+<body>
+<div style="width: 100%; height: 100vh; background-color: aquamarine;"></div>
+<div style="width: 100%; height: 100vh; background-color: aquamarine;"></div>
+<div style="width: 100%; height: 100vh; background-color: aquamarine;"></div>
+<button id="scrollToTopBtn">↑</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+  // Function to scroll to the top of the page
+  // Show/hide the scroll-to-top button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) { // Show button when scrolled down 100px
+      scrollToTopBtn.classList.add('show');
+    } else {
+      scrollToTopBtn.classList.remove('show');
+    }
+  });
+  scrollToTopBtn.addEventListener('click',function(){
+    scrollToTopBtn.style.backgroundColor='red';
+    window.scrollTo({ top: -10000, behavior: 'smooth' });
+  });
+</script>
+
+<!-- Your content here -->
+
+</body>
+</html>

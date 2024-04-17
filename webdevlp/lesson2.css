@@ -1,0 +1,189 @@
+/*pseudo-selectors in css*/
+/*:hover- selects element with condition when mouse is over it*/
+/*:active- selects element with condtion when ,mouse is clicked/activated by user*/
+/*:focus: selects when element has focus, used on input,textarea,select, to focus on that element*/
+/*active tells that element is being interacted by user while focus tells element is in focus and can be interacted with*/
+/*:checked specifies if the checkbox checked or not*/
+
+/*:nth-child(n)-selects element based on position,given by n value in parent element */
+/*:nth-of-type()- selects nth elemnent of that type in parent element*/
+/*:first-child, :last-child are used to select first and last child of parent*/
+/*::before- inserts content before selected element*/
+/*::after- inserts content after selected element*/
+@import url('https://fonts.googleapis.com/css2?family=CustomFont');/*custom font importing using url*/
+body{
+    background-color:darkgreen;
+}
+h1{
+    color:aqua;
+    text-decoration:line-through;
+    text-transform: capitalize;
+}
+p{
+    font-family: 'CustomFont', sans-serif; /*adding custom font but also web font after it, if custom font fails to load*/
+}
+/*syntax of box-shadow*/
+/*box-shadow: h-offset v-offset blur spread color inset;*/
+/*h-offset- +ve value shufts shadow to right, -ve left
+    v-offset- +ve top, -ve bottom, blur u know, spread- +ve expand,-ve shrink, inset is used to make shadow behind the element*/
+h2{
+    border: 20px solid blue;
+    border-radius: 100px;
+    padding-left: 20%;
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+}
+h3{ /*creates dual shadow, more compex shadow*/
+    display: inline; /*takes only spaces as required*/
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5), -5px -5px 10px 5px rgba(255,255,255,0.5);
+}
+h4{
+    box-shadow: inset 5px 5px 10px 5px rgba(0,0,0,0.5);
+}
+h5 {
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    border-width: 10px;
+    border-style: solid;
+    /*for image-source, can use url to path of my custom image as well*/
+    border-image-source: linear-gradient(to right, red, yellow, green, blue, purple);
+    border-image-slice: 5;
+    border-image-repeat: stretch;
+}
+/*float makes the element out of this document*/
+.fly{
+    display:inline;
+    background-color: aqua;
+    float: left;
+}
+/*float can cause overlapping and layout issues so clear is used to make the element being affected to be placed below floating element*/
+p{
+    clear:left;
+} /*float is usually used to align images with text*/
+/*using clip-path can create various shapes, we can do it shape-outside also*/
+h6{
+    width: 100px;
+    height: 100px;
+    clip-path: circle(50% at 50% 50%);
+    margin: 10px 10px;
+    background-color: green;
+    transform-origin: center;
+    text-align: center;
+    font-size: 20;
+    border: 5px solid blue;
+    border-radius: 50px;
+}
+/*Css filters are very useful for creating vsiual effects*/
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    }
+    .image {
+    width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-right: 20px;
+    }
+    .filtered-image {
+    width: 100%;
+    height: 100%;
+    /*filter: grayscale(50%) brightness(80%) contrast(120%) blur(5px) sepia(20%) hue-rotate(90deg) saturate(200%); - this filter makes it look worse*/
+    filter: brightness(110%) contrast(200%) saturate(20%);
+    }
+    .filter-name {
+    text-align: center;
+    margin-top: 10px;
+    }
+/*transitions, keyframe animations, transform, 3d modeling*/
+/*transition: property duration timing-function delay;*/
+/*property is characterstic of element that will change for the duration with time-function(acceleration)*/
+/*delay is how much late the transition should start, property example height,color,width,backgrounf,border*/
+/*time-function has linear-connstant speed, ease-out - accelerates in start then slows at end, ease-in - slow at start then gets fast*/
+/*ease-in-out and ease start slow, get fast in middle,slow at end, cubic-bezier is custom time function*/
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    transition: width 0.5s ease-in 0.5s, height 1s ease-in-out 0.5s;
+    }
+    .box:hover {
+    width: 200px;
+    height: 50px;
+}
+/*Note--->transition is like used on element which will change any property and then we define a change in property using pseudo classes
+    or dom manipulation to make the change follow a duration with time-function to make the change look smooth*/
+/*that change is triggered by dom,pseudo classes,media queries, animations by js, scroll triggers by scrollmagic in js,form submission*/
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.menu li {
+    display: inline-block;
+    margin-right: 20px;
+}
+.menu li a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    background-color: darkkhaki;
+    transition: background-color 3s ease;
+}
+.menu li a:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+}
+.menu li a:active{
+    background-color:black;
+}
+.menu li a:focus{
+    background-color: white;
+}
+/*fading transition*/
+h1{
+    opacity: 0;
+    transition: opacity 7s ease;
+}
+/*transform has 5 features, rotate and skew are used to move element by degress in their axis, scale is used to increase size in x/y-axis or both*/
+/*translate moves element in x/y-axis, there are 3d transforms too, rotateX(), rotateY(), rotateZ(), scaleZ(), translate3d()*/
+/*backface-visibility is used if back-face of element should be visible after rotating*/
+/*transform-origin specifies the point around which a transformation should occur*/
+.big{
+    display: flex;
+    justify-content: space-around;
+}
+.box2{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    transform: rotate(45deg); /*rotates whole element from center*/
+}
+.box3
+{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;;
+    transform: skew(-45deg, 45deg); /*skew takes value, roatation in x-axis,y-axis*/
+    /*now x-axis rotation is basically, base remains fixed, while the value determines how much it will be tilted, +ve means tilt in left, while -ve is righ*/
+    /*y-axis rotation is, left side remains fixed, value tells how much tilts top/bottom, +ve means bottom tilt, -ve is top*/
+}
+.box4{
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    transform: rotate(-20deg) scale(0.5) translate(300px,-100px); /*scale is size, 0.5 means half size of original*/
+}
+.rota
+{
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    margin-left: 100px;
+    transform: rotateY(180deg);
+}
