@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Cube Example</title>
+<style>
+  .cube {
+    margin: 100px;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 5s linear infinite;
+  }
+
+  .face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    opacity: 0.7;
+    border: 10px solid black;
+    border-radius: 10px;
+  }
+
+  .front {
+    transform: translateZ(50px);
+  }
+
+  .back {
+    transform: rotateY(180deg) translateZ(50px);
+    /*transform: translateZ(-50px) - will do the work as well, making the face go behind/inside screen*/
+  }
+
+  .right {
+    transform: rotateY(90deg) translateZ(50px);
+  }
+
+  .left {
+    transform: rotateY(-90deg) translateZ(50px);
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(50px);
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+  }
+
+  @keyframes rotateCube {
+    from {
+      transform: rotateX(0) rotateY(0);
+    }
+    to {
+      transform: rotateX(360deg) rotateY(360deg);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="cube">
+  <div class="face front"></div>
+  <div class="face back"></div>
+  <div class="face right"></div>
+  <div class="face left"></div>
+  <div class="face top"></div>
+  <div class="face bottom"></div>
+</div>
+
+</body>
+</html>

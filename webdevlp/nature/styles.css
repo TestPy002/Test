@@ -1,0 +1,139 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  header {
+    background-color: rgba(51, 102, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .hero {
+    background-image: url('https://wallpapers.com/images/hd/nature-flower-fj8wg1aqakb32fqz.jpg');
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #336600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #448800;
+  }
+  
+  .gallery {
+    text-align: center;
+    margin-top: 50px;
+    position: relative;
+    perspective: 1000px;
+  }
+  
+  .image-stack {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  
+  .image {
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-style: preserve-3d;
+  }
+  
+  .image:nth-child(1) {
+    z-index: 6;
+    transform: translate(-50px, -50px) rotateX(5deg) rotateY(-10deg);
+  }
+  
+  .image:nth-child(2) {
+    z-index: 5;
+    transform: translate(-30px, -30px) rotateX(4deg) rotateY(-8deg);
+  }
+  
+  .image:nth-child(3) {
+    z-index: 4;
+    transform: translate(-15px, -15px) rotateX(3deg) rotateY(-6deg);
+  }
+  
+  .image:nth-child(4) {
+    z-index: 3;
+    transform: translate(0px, 0px) rotateX(2deg) rotateY(-4deg);
+  }
+  
+  .image:nth-child(5) {
+    z-index: 2;
+    transform: translate(10px, 10px) rotateX(1deg) rotateY(-2deg);
+  }
+  
+  .image:nth-child(6) {
+    z-index: 1;
+    transform: translate(30px, 30px) rotateX(0deg) rotateY(0deg);
+  }
+  /* Your existing CSS code */
+
+.image {
+    /* Your existing styles */
+    transition: transform 0.5s ease; /* Add transition property */
+  }
+  
+  .image:hover {
+    transform: translate(0, -200px); /* Slide the image up by 20px on hover */
+  }
+  

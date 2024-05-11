@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Up Button</title>
+<style>
+    #scrollBtn {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 16px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 15px;
+}
+
+#scrollBtn:hover {
+  background-color: #555;
+}
+
+</style>
+</head>
+<body>
+
+<button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+
+<!-- Your content here -->
+<div style="height: 2000px;">
+  Scroll down...
+</div>
+
+<script>
+    
+
+function scrollToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+</script>
+</body>
+</html>

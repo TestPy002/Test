@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#333641">
+    <title>Luminance</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+:root,
+body {
+  color: #fff;
+  height: 100%;
+  overflow: hidden;
+  background: #333641;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div {
+  background: 50% 100% / 50% 50% no-repeat
+  radial-gradient(ellipse at bottom, #fff, transparent, transparent);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 10vw;
+  font-family: "Source Sans Pro", sans-serif;
+  transition: all 5s ease;
+  animation: reveal 3 ease-in-out;
+  @keyframes reveal {
+    80%{
+      letter-spacing: 8px;
+    }
+    100% {
+      background-size: cover;
+    }
+  };
+  @keyframes glow {
+    40% {
+      text-shadow: 0 0 8px #fff;
+    }
+  }
+}  
+    </style>
+</head>
+
+<body>
+    <div>
+        LUMINANCE
+    </div>
+</body>
+<script>
+  var div=document.querySelector('div');
+  div.addEventListener('mousemove',function(){
+    div.style.backgroundSize='contain';
+  })
+</script>
+</html>

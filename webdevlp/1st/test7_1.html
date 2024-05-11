@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Storytelling</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: #000000; /* Black background */
+    font-family: Arial, sans-serif; /* Default font */
+    color: #ffffff; /* White text color */
+  }
+  #animation-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .story-text {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button {
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+  }
+  .button:hover {
+    background-color: #45a049; /* Darker green background on hover */
+  }
+</style>
+</head>
+<body>
+
+<div id="animation-container">
+  <div class="story-text" id="storyText">
+    Once upon a time...
+  </div>
+  <div class="button-container">
+    <button class="button" onclick="nextScene()">Next Scene</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+  const storyText = document.getElementById('storyText');
+  let sceneIndex = 0;
+
+  // Define scenes
+  const scenes = [
+    { text: "Once upon a time...", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } },
+    { text: "In a faraway land, there was a kingdom surrounded by lush forests.", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } },
+    { text: "The kingdom was ruled by a wise and just king, loved by all his people.", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } },
+    { text: "But one day, a dark shadow fell upon the land.", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } },
+    { text: "A fearsome dragon, awakened from its slumber, emerged from the depths of the mountains.", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } },
+    { text: "The dragon unleashed its fury upon the kingdom, burning everything in its path.", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } },
+    { text: "The people cried out for a hero to save them from the dragon's wrath.", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } },
+    { text: "And lo and behold, a brave knight stepped forward, ready to face the beast.", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } },
+    { text: "With courage in his heart and sword in hand, the knight set out to confront the dragon.", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } },
+    { text: "After a fierce battle, the knight emerged victorious, slaying the dragon and saving the kingdom.", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } },
+    { text: "And so, peace was restored to the land, and the people rejoiced.", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } },
+    { text: "The end.", animation: { opacity: 1, y: 0, duration: 1, ease: 'power4.out' } }
+  ];
+
+  // Function to transition to the next scene
+  function nextScene() {
+    if (sceneIndex < scenes.length - 1) {
+      sceneIndex++;
+      const scene = scenes[sceneIndex];
+      gsap.to(storyText, scene.animation);
+      storyText.textContent = scene.text;
+    }
+  }
+</script>
+
+</body>
+</html>

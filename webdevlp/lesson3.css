@@ -1,0 +1,80 @@
+/* keyframes are used to define animation-specifiny properties at,from/0%(start), to/100%(end), while also can use 25%,50%,75%*/
+/*percentages tell how much animation is completed, we can create complex animation by specfying most parts of animation*/
+@keyframes slide { /*slide is animation name*/
+    0%/* can write-from*/ { transform: translateX(0);
+        opacity: 0;}
+    100%/*can write-to*/ { transform: translateX(200px);
+        opacity: 1;  }
+}
+/*animations are used to create/combine transitions and transform and use them any number of times*/
+/*animation: animation-name duration time-function delay repeat-count fill-mode*/
+/*fill-mode--> forward ,backwards,alternate,alternate-reverse; forwards is when to keep start properties when animation ends*/
+/*backwards is used to keep end property when animation ends*/
+/*alternate/revrse are like forward-backward moving/reverse, just they change the flow of animation, can see below to understand*/
+.box {
+    opacity: 0;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    animation: slide 2s ease-in-out 2s 3 backwards;
+}
+.box2 {
+    opacity: 0;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    animation: slide 2s ease-out 3 forwards;
+}
+.box3 {
+    opacity: 0;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    animation: slide 2s ease-in 3 alternate;
+}
+.box4 {
+    opacity: 0;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    animation: slide 2s ease 3 alternate-reverse;
+}
+/*using perspective to create 3d effect*/
+.cube {
+    margin-top: 300px;
+    margin-left: 100px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    perspective: 100px; 
+}
+.face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+    border: 1px solid black;
+    display: flex;
+    opacity: 0.7;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+.front {
+    transform: translateZ(100px);
+}
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}

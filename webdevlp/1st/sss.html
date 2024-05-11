@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .card {
+    width: 200px;
+    height: 300px;
+    background-color: #f2f2f2; /* Set the background color of the parent element */
+    perspective: 1000px; /* Perspective value determines the depth of the 3D effect */
+    overflow: hidden; /* Hide overflowing content from child element */
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; /* Ensures that child elements maintain their 3D position */
+    transition: transform 0.5s; /* Smooth transition effect */
+}
+
+.card:hover .card-inner {
+    transform: translateY(-10px) scale(1.1) rotateX(5deg); /* Move child element upwards, enlarge it, and add rotation on hover */
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+    background-color: #ffcc00;
+    padding: 20px; /* Adds padding to create depth */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transform-style: preserve-3d;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adds a shadow to create depth */
+    transition: box-shadow 0.5s; /* Smooth transition effect for shadow */
+}
+
+.card:hover .card-content {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
+    text-shadow: 0 10px 3px rgba(0, 0, 0, 0.5); /* Add text shadow on hover */
+    transform: skewX(40deg);
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-content">
+                Front Content
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
