@@ -1,4 +1,3 @@
-//delete data function under process
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
@@ -7,7 +6,6 @@
 #include<unistd.h>
 #include<string.h>
 #include<ctype.h>
-int l;
 FILE* fp;
 struct report
 {
@@ -32,7 +30,7 @@ void choose(report *r, char sub[5][10], int f , int n)
     char info[100]; int j=0;
     system("cls");
     int ch;
-    printf("Choose-\n1.Add more\n2.Display\n3.Delete\n4.Exit\n");
+    printf("Choose-\n1.Add more\n2.Display\n3.Top Three\n4.Exit\n");
     scanf("%d",&ch);
     switch(ch)
     {
@@ -110,11 +108,6 @@ void display(report *r, char sub[5][10] ,int f, int n)
 }
 void main()
 {  
-    FILE *fr;
-    fr= fopen("MarkList.csv","r");
-    fseek(fr,0,SEEK_END);
-    l= ftell(fr);
-    fclose(fr);
     int n,f=0; char sub[6][10]={"Name","Physics","Maths","C-lang","Percentage","\0"};
     report *r;
     printf("Enter number of students-");
@@ -125,20 +118,17 @@ void main()
 
 void fileprint(report *r, char sub[5][10], int n)
 {
-    fp= fopen("MarkList.csv","a+");
+    fp= fopen("Marks.c","a+");
     if(fp==NULL) printf("Again");
-    if(l==0)
-    {
     for(int i=0;i<5;i++)
         {
             fputs(sub[i],fp);
-            fprintf(fp,",");
+            fprintf(fp,"   ");
         }
-    }
     char info[100];
         for(int i=0;i<n;i++)
         {
-            sprintf(info,"%s,%d,%d,%d,%d", (r+i)->name, (r+i)->marks[0],(r+i)->marks[1],(r+i)->marks[2],(r+i)->marks[3]);
+            sprintf(info,"%s       %d      %d      %d      %d", (r+i)->name, (r+i)->marks[0],(r+i)->marks[1],(r+i)->marks[2],(r+i)->marks[3]);
             //printf("%s",info);
             fprintf(fp,"\n");
             fputs(info,fp);
