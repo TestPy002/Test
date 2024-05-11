@@ -1,0 +1,32 @@
+from pywinauto import Application
+import pyautogui as ai
+import time
+
+# Start Visual Studio Code
+vscode = Application().start("C:\\Users\\hp\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe")
+time.sleep(5)
+ai.hotkey('ctrl','o')
+time.sleep(1)
+ai.typewrite("count-bits-to-flip-number.c")
+ai.press('enter')
+ai.hotkey('winleft','up')
+time.sleep(1)
+ai.hotkey('ctrl','a')
+ai.hotkey('ctrl','c')
+ai.hotkey('ctrl','n')
+ai.hotkey('ctrl','v')
+ai.hotkey('ctrl','s')
+time.sleep(2)
+ai.typewrite("Test007.c")
+ai.press('enter')
+time.sleep(1)
+ai.hotkey('ctrl','alt','c')
+time.sleep(10)
+ai.hotkey('winleft','shift','s')
+time.sleep(10)
+ai.click(x=1200, y=600)
+ai.hotkey('winleft','up')
+ai.hotkey('ctrl','s')
+time.sleep(1)
+ai.typewrite("autotest")
+ai.press('enter')
